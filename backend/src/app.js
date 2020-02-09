@@ -5,20 +5,20 @@ const express = require('express');
 const jwt = require('jsonwebtoken');
 const bodyParser = require('body-parser');
 const app = express();
+const router = require('./routes');
 require('dotenv').config();
 
 // Database
 require("./models/config");
 
 // Routes
-//const Route = require('./routes/route');
+router(app);
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 app.use(express.json());
 app.use(express.static('public'));
-// app.use(Route);
 
 // Handle Errors 404
 app.use((req, res, next) => {
