@@ -1,18 +1,4 @@
-const mongoose = require("mongoose");
+const User = require('./user');
+const Gps = require('./gps');
 
-const db = process.env.MONGODB_URI || "mongodb://localhost:27017/";
-const options = {
-  useCreateIndex: true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}
-
-const initDB = () => {
-  mongoose.connect(db, options)
-    .then(() => console.log("DB Connected!"))
-    .catch(err => {
-      console.log(`DB Connection Error: ${err.message}`);
-  });
-}
-
-module.exports = initDB();
+module.exports = { User, Gps };
