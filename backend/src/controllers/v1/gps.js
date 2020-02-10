@@ -11,5 +11,15 @@ module.exports = {
     } catch (err) {
       next(err);
     }
+  },
+
+  async getData(req, res) {
+    console.log("asd")
+    try {
+      const gpsData = await Gps.find()
+      res.status(200).json(gpsData);
+    } catch (err) {
+      next(err);
+    }
   }
 }
