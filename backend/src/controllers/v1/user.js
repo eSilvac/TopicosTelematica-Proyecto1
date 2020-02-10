@@ -5,7 +5,6 @@ const { User } = require('../../models/config');
 
 module.exports = {
   async register(req, res) {
-
     try {
       const password = req.body.password ? bcrypt.hashSync(req.body.password, 8) : '';
 
@@ -28,7 +27,6 @@ module.exports = {
     }
   },
   async login(req, res) {
-    console.log(req.body.password)
     try {
       const user = await User.findOne({ email: req.body.email })
       console.log(user)
